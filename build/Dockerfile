@@ -13,6 +13,6 @@ RUN apt-get update \
   	curl \
   	protobuf-compiler \
   && ln -s /usr/bin/nodejs /usr/bin/node \
-  && npm install -g typescript@2.1.5 \
+  && npm install -g typescript \
   && gem install rake sass \
   && apt-get clean
