@@ -43,9 +43,9 @@ RUN apt-get update \
     && git clone https://github.com/opencv/opencv.git \
     && git clone https://github.com/opencv/opencv_contrib.git \
     && cd opencv_contrib \
-    && git checkout 3.3.0 \
+    && git checkout 4.1.0 \
     && cd ../opencv \
-    && git checkout 3.3.0 \
+    && git checkout 4.1.0 \
     && mkdir -p build \
     && cd build \
     && cmake -D CMAKE_BUILD_TYPE=RELEASE \
