@@ -17,6 +17,6 @@ RUN apt-get update \
 	&& curl -OL https://github.com/google/protobuf/releases/download/v3.7.1/protoc-3.7.1-linux-x86_64.zip \	
   	&& unzip protoc-3.7.1-linux-x86_64.zip -d /usr/local \	
   	&& rm protoc-3.7.1-linux-x86_64.zip \
-	&& curl https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz | tar xz -C /usr/local
+	&& curl https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz | tar xz -C /usr/local
 
 ENV PATH="/usr/local/go/bin:${PATH}"
