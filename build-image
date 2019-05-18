@@ -15,36 +15,36 @@ def get_version(root):
 
 class Image(object):
     def __init__(self, name, tag, dockerfile):
-        self.name = name
-        self.tag = tag
-        self.dockerfile = dockerfile
+        self._name = name
+        self._tag = tag
+        self._dockerfile = dockerfile
 
-    def full_name(self):
-        return "{}:{}".format(self.name, self.tag)
+    def name(self):
+        return "{}:{}".format(self._name, self._tag)
     
     def build(self):
         return subprocess.call([
             'docker',
             'build',
-            '-f', self.dockerfile,
-            '-t', self.full_name(),
-            os.path.dirname(self.dockerfile)
+            '-f', self._dockerfile,
+            '-t', self.name(),
+            os.path.dirname(self._dockerfile)
         ]) == 0
     
     def push(self):
         return subprocess.call([
             'docker',
             'push',
-            self.full_name(),
+            self.name(),
         ]) == 0
     
     def tag(self, tag):
-        img = Image(self.name, tag, self.dockerfile)
+        img = Image(self._name, tag, self._dockerfile)
         if subprocess.call([
             'docker',
             'tag',
-            self.full_name(),
-            img.full_name()]) != 0:
+            self.name(),
+            img.name()]) != 0:
             return None
         return img
 
