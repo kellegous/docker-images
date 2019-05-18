@@ -57,7 +57,12 @@ RUN apt-get update \
       -D WITH_QT=ON \
       -D WITH_OPENGL=ON \
       -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
-      -D BUILD_EXAMPLES=ON .. \
+      -D OPENCV_GENERATE_PKGCONFIG=YES \
+      -D BUILD_TESTS=OFF \
+      -D BUILD_PERF_TESTS=OFF \
+      -D BUILD_DOCS=OFF \
+      -D BUILD_opencv_apps=OFF \
+      -D BUILD_EXAMPLES=OFF .. \
     && make -j4 \
     && make install \
     && sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf' \
