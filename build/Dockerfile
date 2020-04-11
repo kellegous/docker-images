@@ -14,9 +14,9 @@ RUN apt-get update \
 	&& npm install -g typescript \
 	&& gem install rake sass \
 	&& apt-get clean \
-	&& curl -OL https://github.com/google/protobuf/releases/download/v3.10.0/protoc-3.10.0-linux-x86_64.zip \	
-  	&& unzip protoc-3.10.0-linux-x86_64.zip -d /usr/local \	
-  	&& rm protoc-3.10.0-linux-x86_64.zip \
-	&& curl https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz | tar xz -C /usr/local
+	&& curl -OL https://github.com/google/protobuf/releases/download/v3.11.4/protoc-3.11.4-linux-x86_64.zip \	
+  	&& unzip protoc-3.11.4-linux-x86_64.zip -d /usr/local \	
+  	&& rm protoc-3.11.4-linux-x86_64.zip \
+	&& curl https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz | tar xz -C /usr/local
 
 ENV PATH="/usr/local/go/bin:${PATH}"
