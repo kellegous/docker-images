@@ -17,6 +17,6 @@ RUN apt-get update \
 	&& curl -OL https://github.com/google/protobuf/releases/download/v3.19.4/protoc-3.19.4-linux-x86_64.zip \	
 	&& unzip protoc-3.19.4-linux-x86_64.zip -d /usr/local \	
 	&& rm protoc-3.19.4-linux-x86_64.zip \
-	&& curl https://dl.google.com/go/go1.17.6.linux-amd64.tar.gz | tar xz -C /usr/local
+	&& curl https://dl.google.com/go/go1.18.1.linux-amd64.tar.gz | tar xz -C /usr/local
 
 ENV PATH="/usr/local/go/bin:${PATH}"
