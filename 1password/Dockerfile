@@ -11,3 +11,6 @@ RUN apt-get update \
 	&& apt-get update \
 	&& apt-get install 1password-cli
 
+COPY bashrc /root/.bashrc
+
+ENTRYPOINT [ "/bin/bash" ]
