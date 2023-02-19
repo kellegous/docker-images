@@ -1,34 +1,15 @@
 package main
 
 import (
-	"bytes"
 	"context"
 	"fmt"
 	"os"
 	"os/exec"
 	"os/signal"
 	"path/filepath"
-	"strings"
 
 	"github.com/spf13/cobra"
 )
-
-func getTagFromGit(
-	ctx context.Context,
-) (string, error) {
-	var buf bytes.Buffer
-	c := exec.CommandContext(ctx, "git", "rev-parse", "HEAD")
-	c.Stderr = os.Stderr
-	c.Stdout = &buf
-	if err := c.Run(); err != nil {
-		return "", err
-	}
-	tag := strings.TrimSpace(buf.String())
-	if len(tag) > 8 {
-		tag = tag[:8]
-	}
-	return tag, nil
-}
 
 func buildImage(
 	ctx context.Context,
@@ -38,17 +19,26 @@ func buildImage(
 	push bool,
 ) error {
 	args := []string{
-		fmt.Sprintf("--docker-file=%s", dockerFile),
-		fmt.Sprintf("--version=%s", tag),
-		"--platform=linux/arm64",
-		"--platform=linux/amd64",
+		fmt.Sprintf("--dockerfile=%s", dockerFile),
+		fmt.Sprintf("--root=%s", filepath.Dir(dockerFile)),
+	}
+
+	if tag != "" {
+		args = append(args, fmt.Sprintf("--tag=%s", tag))
 	}
 
 	if push {
-		args = append(args, "--push")
+		args = append(
+			args,
+			"--target=linux/amd64",
+			"--target=linux/arm64")
+	} else {
+		args = append(args,
+			fmt.Sprintf("--target=linux/amd64:%s-amd64.tar", name),
+			fmt.Sprintf("--target=linux/arm64:%s-arm64.tar", name))
 	}
 
-	args = append(args, name)
+	args = append(args, fmt.Sprintf("kellegous/%s", name))
 
 	c := exec.CommandContext(ctx, "bin/buildimg", args...)
 	c.Stdout = os.Stdout
@@ -72,15 +62,6 @@ func buildCommand() *cobra.Command {
 				os.Interrupt)
 			defer done()
 
-			var err error
-			if tag == "" {
-				tag, err = getTagFromGit(ctx)
-				if err != nil {
-					cmd.PrintErrf("git rev-parse: %s", err)
-					os.Exit(1)
-				}
-			}
-
 			name := args[0]
 			dfPath := filepath.Join(name, "Dockerfile")
 			if _, err := os.Stat(dfPath); err != nil {
@@ -88,13 +69,10 @@ func buildCommand() *cobra.Command {
 				os.Exit(1)
 			}
 
-			image := fmt.Sprintf("kellegous/%s", name)
-			if err := buildImage(ctx, dfPath, image, tag, push); err != nil {
+			if err := buildImage(ctx, dfPath, name, tag, push); err != nil {
 				cmd.PrintErrf("build image: %s", err)
 				os.Exit(1)
 			}
-
-			fmt.Printf("%s:%s\n", image, tag)
 		},
 	}
 
