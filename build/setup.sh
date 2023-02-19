@@ -34,7 +34,7 @@ install_go() {
 		ARCH="amd64"
 		;;
 		"aarch64")
-		ARC="arm64"
+		ARCH="arm64"
 		;;
 		*)
 	esac
