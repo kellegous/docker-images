@@ -1,12 +1,7 @@
 github.com/cpuguy83/go-md2man/v2 v2.0.2/go.mod h1:tgQtvFlXSQOSOSIRvRPT7W67SCa46tRHOmNcaadrF8o=
-github.com/inconshreveable/mousetrap v1.0.1 h1:U3uMjPSQEBMNp1lFxmllqCPM6P5u/Xq7Pgzkat/bFNc=
 github.com/inconshreveable/mousetrap v1.0.1/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
 github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
-github.com/kellegous/buildimg v0.0.0-20220916004419-b4ccf95b0a13 h1:1/XW6GNmOZnYB8C0wffdM5ZiwQMvoQMP2qjDHUa4uwE=
-github.com/kellegous/buildimg v0.0.0-20220916004419-b4ccf95b0a13/go.mod h1:R1/QyjC79AiIfMGasPLxaKhibSN9u0QwyNWjqKTVhQk=
-github.com/kellegous/buildimg v0.0.0-20230218213159-2193a7f67a84 h1:aLRazM/oczmvrUhQo9vBfYeJVYjWN56q7sSTRqwU3Ow=
-github.com/kellegous/buildimg v0.0.0-20230218213159-2193a7f67a84/go.mod h1:R1/QyjC79AiIfMGasPLxaKhibSN9u0QwyNWjqKTVhQk=
 github.com/kellegous/buildimg v0.0.0-20230219021346-9566ca694b86 h1:oUxV4OSzb93FD5oTAnPAoWMC497HoSxjjxdYDRYuJro=
 github.com/kellegous/buildimg v0.0.0-20230219021346-9566ca694b86/go.mod h1:vZ+/Erxq3l6gFlU026D+pE8WAUvI3EGdpk0knzaJRyE=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
