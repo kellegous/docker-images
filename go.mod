@@ -1,10 +1,10 @@
 module github.com/kellegous/docker-images
 
-go 1.19
+go 1.21.3
 
 require (
 	github.com/kellegous/buildimg v1.1.0
-	github.com/spf13/cobra v1.7.0
+	github.com/spf13/cobra v1.8.0
 )
 
 require (
