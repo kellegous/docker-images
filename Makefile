@@ -1,10 +1,12 @@
+.PHONY: all clean
+
 all: bin/build
 
 bin/buildimg:
-	go build -o $@ github.com/kellegous/buildimg
+	GOBIN="$(CURDIR)/bin" go install github.com/kellegous/buildimg@latest
 
-bin/build: main.go bin/buildimg
-	go build -o $@
+bin/build: cmd/build/main.go bin/buildimg
+	go build -o $@ ./cmd/build
 
 clean:
 	rm -rf bin
