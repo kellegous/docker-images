@@ -38,7 +38,7 @@ func buildImage(
 			fmt.Sprintf("--target=linux/arm64:%s-arm64.tar", name))
 	}
 
-	args = append(args, fmt.Sprintf("ghcr.io/kellegous/%s", name))
+	args = append(args, fmt.Sprintf("kellegous/%s", name))
 
 	c := exec.CommandContext(ctx, "bin/buildimg", args...)
 	c.Stdout = os.Stdout
