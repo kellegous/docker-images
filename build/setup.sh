@@ -62,7 +62,7 @@ echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.co
 
 apt-get update
 
-apt-get install -y nodejs git build-essential closure-compiler zip
+apt-get install -y nodejs git build-essential closure-compiler zip rsync
 
 apt-get clean
 
