@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM debian:bookworm
 
 COPY setup.sh /setup.sh
 RUN /setup.sh

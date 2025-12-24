@@ -2,9 +2,9 @@
 
 set -euo pipefail
 
-PROTOC_VERSION="31.1"
+PROTOC_VERSION="33.2"
 PROTOC_BASE_URL="https://github.com/protocolbuffers/protobuf/releases/download"
-GO_VERSION="1.24.5"
+GO_VERSION="1.25.5"
 NODE_MAJOR=22
 
 install_protoc() {
