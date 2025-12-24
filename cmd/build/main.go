@@ -20,7 +20,7 @@ func buildImage(
 ) error {
 	args := []string{
 		fmt.Sprintf("--dockerfile=%s", dockerFile),
-		fmt.Sprintf("--root=%s", filepath.Dir(dockerFile)),
+		fmt.Sprintf("--path=%s", filepath.Dir(dockerFile)),
 	}
 
 	if tag != "" {
