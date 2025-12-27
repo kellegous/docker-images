@@ -66,6 +66,8 @@ apt-get install -y nodejs git build-essential closure-compiler zip rsync
 
 apt-get clean
 
+git config --global --add safe.directory "*"
+
 install_protoc $PROTOC_VERSION $ARCH
 install_go $GO_VERSION $ARCH
 rm $0
