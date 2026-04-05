@@ -68,6 +68,8 @@ apt-get clean
 
 git config --global --add safe.directory "*"
 
+npm install -g bun
+
 install_protoc $PROTOC_VERSION $ARCH
 install_go $GO_VERSION $ARCH
 rm $0
